@@ -28,6 +28,7 @@ public class PostsAPITest {
                     .assertThat()
                     .statusCode(201);
     }
+
     @Test
     public void testUpdatePost() {
         baseURI = "https://jsonplaceholder.typicode.com/posts/2";
@@ -38,9 +39,20 @@ public class PostsAPITest {
         given()
                 .body(updatePost)
                 .when()
-                .put()
+                    .put()
                 .then().log().all()
-                .assertThat()
-                .statusCode(200);
+                    .assertThat()
+                    .statusCode(200);
+    }
+
+    @Test
+    public void testDeleteAnUser() {
+        baseURI = "https://jsonplaceholder.typicode.com/posts/1";
+        given()
+                .when()
+                    .delete()
+                .then().log().all()
+                    .assertThat()
+                    .statusCode(200);
     }
 }
