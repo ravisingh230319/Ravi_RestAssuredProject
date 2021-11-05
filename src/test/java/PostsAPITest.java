@@ -28,4 +28,19 @@ public class PostsAPITest {
                     .assertThat()
                     .statusCode(201);
     }
+    @Test
+    public void testUpdatePost() {
+        baseURI = "https://jsonplaceholder.typicode.com/posts/2";
+        String updatePost = "{"+     "\"userId\":"+ "1,"+
+                "\"title\":"+ "Moving to new office,"+
+                "\"body\":"+ "Extreme new office"+
+                "}";
+        given()
+                .body(updatePost)
+                .when()
+                .put()
+                .then().log().all()
+                .assertThat()
+                .statusCode(200);
+    }
 }
