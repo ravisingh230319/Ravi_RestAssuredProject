@@ -46,7 +46,7 @@ public class PostsAPITest {
     }
 
     @Test
-    public void testDeleteAnUser() {
+    public void testDeleteAnPost() {
         baseURI = "https://jsonplaceholder.typicode.com/posts/1";
         given()
                 .when()
